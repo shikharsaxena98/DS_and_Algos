@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1565326356 source:d:\c++\cb\new folder\2d_array\rev_string\main.cpp
+	<iostream>
+	<cstring>
+

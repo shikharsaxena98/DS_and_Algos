@@ -11,16 +11,19 @@ int main()
         str[i+k] = str[i];
         i--;
     }
-
-    while(k >=0){
+    i = strlen(str) - k;
+    while(k >0){
         str[k-1] = str[i+k-1];
         k--;
     }
+
+    str[10] = '\0';
     int j = 0;
     while(str[j] != '\0'){
         cout<< str[j]<<endl;
         j++;
     }
+
 
     return 0;
 }

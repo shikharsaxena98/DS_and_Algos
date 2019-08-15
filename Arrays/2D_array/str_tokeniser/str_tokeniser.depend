@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1565876685 source:d:\c++\cb\arrays\2d_array\str_tokeniser\main.cpp
+	<iostream>
+	<cstring>
+

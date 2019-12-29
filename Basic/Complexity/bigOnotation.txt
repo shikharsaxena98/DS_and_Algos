@@ -1,0 +1,50 @@
+TYPES OF MESUREMENTS FOR ALGORITHMS PERFORMANCE:
+
+1. Worst-case (Big O notation)
+2. Best-case
+3. Average-case
+
+GENERAL RULES:
+
+1. Ignore Constants:
+	Compleity of 5n = O(n)
+	Complexity of 5n + 7 = O(n)
+
+2. Best to Worst Case:
+
+	O(1) < O(logn) < O(n) < O(nlogn) < O(n^2) < O(2^n) < O(n!)
+
+Examples of :
+	a) Constant Time
+	   O(1) : x=5 + (15 * 20)	
+		: x = 5* O(1)
+
+	b) Linear Time
+	   O(n) : n * O(1) = O(n)
+			
+			y = 5 + (15 * 20) // O(1)
+
+			for i in 0 to n:  // O(n)	
+				print(i)	
+
+		TOTAL = O(1) + O(n) = O(n)
+	c) Quadratic Time
+	   O(n^2) : O(N) * O(N)
+		
+			for x in 0 to n: 		//O(n)
+				for y in range 0 to n:  //O(n)
+					print x*y	//O(1)
+
+		TOTAL = O(n) * O(n) = O(n^2)
+
+
+EXAMPLE 1:
+	x= 10
+	for i in range 0 to x:			// O(n)
+		print x*i
+
+	for i in range 0 to  x:
+		for j in range 0 to x:		// O(n^2)
+			print i+j
+
+	TOTAL : O(n^2) + O(n) = O(n)

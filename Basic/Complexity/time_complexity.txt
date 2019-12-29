@@ -1,0 +1,36 @@
+TIME COMPLEXITY
+
+Ex: Finding if a number is prime.
+
+Way1: 	//Algo
+
+	for i=2 to n-1:
+	check if i divides n:
+		n is not prime
+	else:
+		n is prime
+
+	//end of Algo
+
+
+	TIME TAKEN for n=10: 8ms (if 1 ms for 1 division)
+		       n=10^6 + 3: 10^6 ms i.e 16 mins
+
+	COMPLEXITY : O(n)
+
+
+Way 2:	//Algo
+
+	for i = 2 to sqrt(n):
+		if i divides n:
+			n is not prime
+		else:
+			n is prime
+	
+	//end of Algo
+
+	TIME TAKEN for n=10: sqrt(10) - 1 = 2ms
+		       n=10^6 + 3: 10^3 ms i.e 1 sec
+
+	COMPLEXITY : O(sqrt(n))
+

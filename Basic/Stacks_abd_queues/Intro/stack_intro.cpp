@@ -84,7 +84,7 @@ class Stack {
 
 int main(){
 	//Init mystack onject
-	class Stack mystack;
+	Stack mystack;
 
 	//View if any element is present i the stack
 	if(!mystack.isEmpty()){

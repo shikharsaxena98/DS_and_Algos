@@ -20,14 +20,22 @@ int main()
     cout << d<<endl;
 
     char e[20];
-    cin.get>> e; //input "hello world"
+    cin.get(e, 20); //input "hello world"
     cout<<e<<endl;
 
     char f[30];
     cin.getline(f, 30);
     cout<< f<<endl;
 
+    // 2D char array
 
+    char two[][3] = {{'A', 'B', 'C'},
+	    	     {'D', 'E', 'F'}
+    		    };
+
+    std::cout<<two<<'\n';
+    std::cout<<two[0]<<'\n';
+    std::cout<<two[0][0]<<'\n';
 
     return 0;
 }

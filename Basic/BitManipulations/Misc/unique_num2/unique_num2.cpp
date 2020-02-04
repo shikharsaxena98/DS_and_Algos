@@ -13,10 +13,10 @@ int getFirstSet(int n){
 
 int main(){
 
-	int arr[] = {5,1,2,1,2,3,5,7};
+	int arr[] = {3,1,2,1};
 	int val {0};
 
-	for(int i=0; i<8; i++){
+	for(int i=0; i<4; i++){
 		val = val ^ arr[i];
 	}
 	
@@ -25,7 +25,7 @@ int main(){
 	int mask = 1<<idxSet;
 	
 	int tmp=0;
-	for(int i=0; i<8; i++){
+	for(int i=0; i<4; i++){
 		if((arr[i] & mask) > 0){
 			tmp = tmp^ arr[i];	
 		}

@@ -6,6 +6,12 @@ class Node {
 public:
 	int data;
        	Node * nxt_addr;	       
+
+	Node(int d){
+		data = d;
+		nxt_addr = NULL;
+	}
+
 };
 
 void count_nodes(Node * c){
@@ -18,47 +24,42 @@ void count_nodes(Node * c){
 	std::cout<<val<<"\n";
 }
 
-void insert_node(Node * c, int new_data ){
-	Node * new_node =NULL;
+Node* insert_node(Node * head, int new_data ){
+	Node* new_node = new Node(new_data);
         
-	new_node->data = new_data;
-	new_node->nxt_addr= NULL;
-	
+//	new_node->data = new_data;
+	new_node->nxt_addr= head;
+/*	
 	while(c != NULL){
 		c= c->nxt_addr;
 		if(c == NULL){
 			c->nxt_addr = new_node;
 		}
-	}
+	} */
+
+	return new_node;
 	
 }
 
 int main(){
-	Node * A = NULL;
-	Node * B = NULL;
-	Node * C = NULL;
-
-	A = new Node();
-	B = new Node();
-	C = new Node();
-
-	A->data = 1;
-	A->nxt_addr = B;
-
-	B->data= 2;
-	B->nxt_addr = C;
-
-	C->data= 3;
-	C->nxt_addr= NULL;
+	Node* head = new Node(2);
 	
-	Node * D = NULL;
-       	D = new Node();	
+//	head->data = 2;
 
-	std::cout<<"Before addition"<<"\n";
-	count_nodes(A);
+	std::cout<<"Before 1st insertion, count: "<<'\n';
+	count_nodes(head);
 
-	insert_node(D, 5);
+	head = insert_node(head, 4);
+
+	std::cout<<"After 1st Insertion, count: "<<'\n';
+	count_nodes(head);
+
+
 	
-	count_nodes(A);
+	count_nodes(head);
+
+	head = insert_node(head, 5);
+	
+	count_nodes(head);
 	return 0;
 }

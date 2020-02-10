@@ -1,6 +1,6 @@
 #include<iostream>
 
-
+//Define a node Class
 
 class Node {
 public:
@@ -31,6 +31,8 @@ void printLL(Node* c){
 	}
 	std::cout<<'\n';
 }
+
+// INSERTION
 
 Node* insert_node(Node * head, int new_data ){
 	Node* new_node = new Node(new_data);
@@ -74,6 +76,32 @@ void insertTail(Node* head, int data){
 	c->nxt_addr = new_node;
 }
 
+// SERACHING
+
+bool recSearch(Node* head, int key){
+	if(head == NULL){
+		return false;
+	}
+
+	if(head->data == key){
+		return true;
+	} else {
+		recSearch(head->nxt_addr, key);
+	}
+}
+
+bool iterSearch(Node* head, int key){
+	while(head != NULL){
+		if(head->data == key){
+			return true;
+		} else {
+			head = head->nxt_addr;
+		}
+	}
+
+	return false;
+}
+
 int main(){
 	Node* head = new Node(2);
 
@@ -105,6 +133,11 @@ int main(){
 	insertMiddle(head, 70, 2);
 	printLL(head);
 
+	std::cout<<"69 in LL: "<<recSearch(head, 69)<<'\n';
+	std::cout<<"5 in LL:"<<recSearch(head, 5)<<'\n';
+
+	std::cout<<"79 in LL: "<<iterSearch(head, 79)<<'\n';
+        std::cout<<"10 in LL:"<<iterSearch(head, 10)<<'\n';
 
 	return 0;
 }

@@ -17,6 +17,7 @@ void getMaxArray(int* arr, int len, int k){
 	s.push(val);
 
 	for(int i=k ; i<len; i++){
+
 		if(arr[s.top()] > arr[i]){
 			f_arr[i-k+1] = s.top();
 		} else {
@@ -34,7 +35,7 @@ void getMaxArray(int* arr, int len, int k){
 }
 
 int main(){
-	int arr[] = {1,2,3,1,4,5,2,3,6};
+	int arr[] = {1,2,3,1,2,1,2,3,6};
 	int len = 9;
 	int k=3;
 

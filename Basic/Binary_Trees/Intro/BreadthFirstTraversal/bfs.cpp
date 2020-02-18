@@ -54,14 +54,45 @@ void bfs(node* root){
 }
 
 void bfs_level(node* root){
-	std::queue<std::pair<node*, int>> q;
+//	std::queue<std::pair<node*, int>> q;
+	std::queue<node*> q;
+	q.push(root);
+	q.push(NULL);
 
+	while(!q.empty()){
+		node* val = q.front();
+		
+		if(val == NULL){
+			std::cout<<'\n';
+			q.pop();
+		//	val = q.front();
+			if(!q.empty()){
+				q.push(NULL);
+			}
+		}
+		else{
+		std::cout<<val->data<<" ";
+		q.pop();
+
+		if(val->left){
+			q.push(val->left);
+		}
+
+		if(val->right){
+			q.push(val->right);
+		}
+		}
+	}
+
+	return;
 }
 
 int main(){
 	node* root=buildTree();
 	std::cout<<"Built"<<"\n";
 	bfs(root);
+	std::cout<<'\n'<<"BFS with levelorder:"<<'\n';
+	bfs_level(root);
 
 	return 0;	
 }

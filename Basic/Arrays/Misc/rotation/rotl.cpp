@@ -6,6 +6,7 @@ int main(){
 	int n = 9;
 	int rotL = 3;
 
+	// std::rotate(beg_of_original_array, beg_of_rotated_arr, end_of_roriginal)
 	std::rotate(data, data+rotL, data+n);
 
 	for(int i=0; i<9; i++){

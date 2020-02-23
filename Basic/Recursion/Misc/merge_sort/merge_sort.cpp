@@ -31,7 +31,8 @@ void mergeArr(int* arr, int s, int e){
 
 void mergeSort(int* arr,int s, int e){
 	//Base case
-	if(s==e){
+	if(s>=e){
+
 		return;
 	}
 	// Divide the array in smaller arrays

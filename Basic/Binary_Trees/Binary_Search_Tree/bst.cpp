@@ -105,9 +105,57 @@ bool search(node* root, int val){
 	}
 }
 
-//void del(node* root, int val){
-	
-//}
+node* findMax(node* root){	
+	if(root->right == NULL){
+		return root;
+	}
+
+	return findMax(root->right);
+}
+
+node* del(node* root, int val){
+	if(root== NULL){
+		return NULL;
+	}
+
+	if(root->data > val){
+		root->left = del(root->left, val);
+	} else if(root->data == val){
+		// Leaf Node
+		if(root->left == NULL && root->right == NULL){
+			delete root;
+			return NULL;
+		}
+		// 1 child       
+		if(root->left && root->right == NULL){
+			node* temp = root->left;
+			delete root;
+			return temp;
+		}
+
+		if(root->right && root->left == NULL){
+			node* temp = root->right;
+			delete root;
+			return root;
+		}
+		//2 or child
+
+		node* rep = findMax(root->left);
+
+		root->data = rep->data;
+
+		root->left = del(rep, )
+
+		delete rep;
+		return root;
+
+		
+	} else {
+		root->right = del(root->right, val)
+	}
+
+	return root;
+}
 
 int main(){
 	node* root = NULL;
@@ -126,6 +174,9 @@ int main(){
 	int dat;
 	std::cin>>dat;
 	search(root, dat) ? std::cout<<"Present"<<'\n' : std::cout<<"Not Present"<<'\n';
+	
+	std::cout<<"max in bst: "<<'\n';
+	std::cout<<findMax(root)->data<<'\n';
 
 	return 0;
 }

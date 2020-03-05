@@ -11,7 +11,7 @@ void reverse(int* arr, int s, int e){
 void revRot(int* arr, int len, int d){
 	reverse(arr, 0, len-d-1);
 	reverse(arr, len-d, len-1);
-	reverse(arr, 0, len);
+	reverse(arr, 0, len-1);
 }
 
 int main(){

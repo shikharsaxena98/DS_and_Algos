@@ -1,54 +1,47 @@
-#include<cmath>
 #include<iostream>
-#include<string>
-#include<vector>
-#include<algorithm>
+//#include<string>
 
-std::vector<int> primesum(int A) {
-    int* prime = new int[A+1];
-    for(int i=0; i<=A; i++){
-        prime[i] = 1;
-    }
-    prime[0] =1;
-    prime[1] = 1;
-    
-    std::vector<int> temp;
-    for(int i=2; i<=A; i++){
-        if(prime[i] == 1){
-            for(int j=2; j*i<= A; j++){
-                prime[i*j] = 0;
-            }
-            temp.push_back(i);
-        }
-    }
-    
-    int i=0;
-    int j= temp.size() - 1;
-    std::vector<int> v;
-    while(i<=j){
-        int sum = temp[i] + temp[j];
-        if(sum < A){
-          i++;
-        } else if(sum > A){
-            j--;
-        } else {
-            v.push_back(temp[i]);
-	    v.push_back(temp[j]);
-            return v;
-        }
-    }
-    
+std::pair<int, int> getHT(char* str, int len){
+	int maxh=0;
+	int maxt=0;
+
+	int temph=0;
+	int tempt=0;
+
+	for(int i=0; i<len; i++){
+		if(str[i] == 'H'){
+			temph++;
+		} else {
+			maxh = std::max(maxh, temph);
+			temph=0;
+		}
+
+		if(str[i] == 'T'){
+			tempt++;
+		} else {
+			maxt = std::max(tempt, maxt);
+			tempt =0;
+		}
+//		std::cout<<"LOOP "<<i<<"   tempt: "<<tempt<<"   Maxt: "<<maxt<<"   Maxh"<<maxh<<"  temph"<<temph<<'\n';
+	}
+
+	maxt = std::max(maxt, tempt);
+	maxh = std::max(maxh, temph);
+	std::pair<int, int> p = {maxh, maxt};
+	return p;
 }
-
 
 int main(){
-        int num;
-        std::cin>>num;
+	int len;
+	std::cin>>len;
 
-        std::vector<int> v =primesum(num);
+	char* str = new char[len];
+	for(int i=0; i<len; i++){
+		std::cin>>str[i];
+	}
 
-        std::cout<<v[0]<<" "<<v[1]<<'\n';
-        return 0;
+	std::pair<int, int> p = getHT(str, len);
+	std::cout<<"H: "<<p.first<<"  T: "<<p.second<<'\n';	
+
+	return 0;
 }
-
-
